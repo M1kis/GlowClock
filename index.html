@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowClock</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap" rel="stylesheet">
+
+
+</head>
+<body id="body">
+    <header>
+        <div class="logo">GlowClock</div>
+        <div class="hamburguer">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected">Wallpaper</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li data-value="solid-color" class="active" id="wallpaper-menu">Solid color</li>
+                            <li data-value="abstract" id="wallpaper-menu">Abstract</li>
+                            <li data-value="topographic" id="wallpaper-menu">Topographic</li>
+                        </ul>
+                    </div>                              
+                </li>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected">Font</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li data-value="montserrat" class="active" id="font-menu">Montserrat</li>
+                            <li data-value="pacifico" id="font-menu">Pacifico</li>
+                            <li data-value="sankofa" id="font-menu">Sankofa </li>
+                        </ul>
+                    </div>
+                <li>        
+                <li>
+                    <a href="#" id="about-me">About me</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="clock-container">
+        <div class="clock" id="clock">
+            <h1 id="hrs" class="glow">00</h1>
+            <h1 class="glow">:</h1>
+            <h1 id="min" class="glow">00</h1>
+                <div class="clock-day">
+                    <h2 id="day-1" class="glow">A</h2>
+                    <h2 id="day-2" class="glow">M</h2>
+                </div>
+        </div>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+    <script>
+
+        function getAMPM(hour) {
+            return hour >= 12 ? 'PM' : 'AM';
+        }
+
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        let hrs = document.getElementById("hrs");
+        let min = document.getElementById("min");
+        let day1 = document.getElementById("day-1");
+        let day2 = document.getElementById("day-2");
+
+
+        const ampm = getAMPM(hours);
+
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+
+        const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+        const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+        const currentTime = `${hours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+
+        setInterval(() =>{
+            let currentTime = new Date();
+            hrs.innerText = (currentTime.getHours()<10?"0":"") + currentTime.getHours();
+            min.innerText = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+
+            if(ampm == "AM"){
+                day1.innerText = "A"
+                day2.innerText = "M"
+            }else{
+                day1.innerText = "P"
+                day2.innerText = "M"
+            }
+        }, 1000)
+
+    </script>
+</body>
+</html>

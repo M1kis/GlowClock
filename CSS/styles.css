@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif; /* Fuente base */
+    background-color: #1a1a2e; /* Fondo oscuro, típico de la temática aesthetic */
+    color: #ffffff; /* Color del texto suave */
+    overflow: hidden; /* Evitar barras de desplazamiento */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Asegúrate de que el margen sea 0 para evitar desplazamiento no deseado */
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.logo{
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: default;
+}
+
+.hamburguer {
+    display: none;
+}
+
+.dropdown {
+    min-width: 10em;
+    position: relative;
+    margin: 1em;
+}
+
+.dropdown *{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.select {
+    background-color: #1f1f36;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #1f1f36 solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.selected-clicked {
+    border: 2px #1f1f36 solid;
+    box-shadow: 0 0 0.8em #2c2c4d;
+}
+
+.select:hover {
+    background-color: #25253a;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background-color: #2c2c4d;
+    border: 1px #2c2c4d solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: rgb(168, 168, 168);
+    position: absolute;
+    top: 4em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);    
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.5em 0.5em;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu li:hover {
+    color: white;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+
+}
+
+.active {
+    color: white;
+}
+
+.nav-bar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar ul li a{
+    display: block;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    transition: 0.2px;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+
+.clock-container{
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    cursor: default;
+}
+
+.clock {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.clock h1 {
+    font-size: 240px;
+}
+
+.clock h2 {
+    font-size: 50px;
+}
+
+.clock-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.glow {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 5px #e6e6e6, 0 0 5px #e6e6e6, 0 0 5px #e6e6e6, 0 0 10px #e6e6e6, 0 0 10px #e6e6e6, 0 0 20px #e6e6e6, 0 0 30px #e6e6e6;
+}
